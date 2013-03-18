@@ -14,21 +14,17 @@ class Store
     raw.each do |item|
       new_item = {}
       item.keys.each do |key| 
-        new_item[(key.to_sym rescue key) || key] = item.delete(key)
+        new_item[(key.to_sym rescue key) || key] = item[key].is_a?(String) ? item.delete(key).capitalize : item.delete(key)
       end
       new_item[:available] = new_item[:in_store] > 0
       @items << new_item
     end
   end
 
-  def is_numeric?(param)
-    param.is_a?(Integer) || param.is_a?(Float)
-  end
-
   def search(params)
     found = []
     @items.each do |item|
-      found << item if item.values_at(*params.keys) == params.values
+      found << item if item.values_at(*params.keys) == params.values.collect{|v| v.is_a?(String) ? v.capitalize : v}
     end
     found
   end

@@ -13,7 +13,7 @@ class TestStore < MiniTest::Unit::TestCase
   end
   
   def test_search_by_multiple_search_criteria
-    assert_equal 2, @store.search(:color => 'blue', :name => 'Jeans').size #Currently doesn't differentiate up- and downcase
+    assert_equal 2, @store.search(:color => 'blue', :name => 'jeans').size
   end
  
   def test_search_for_non_present_items
@@ -21,7 +21,7 @@ class TestStore < MiniTest::Unit::TestCase
   end
  
   def test_search_with_availability_flag
-    assert_equal 'A lamp', @store.search(:color => 'green', :category => 'Furniture', :available => true).first.name #same as above comment
+    assert_equal 'A lamp', @store.search(:color => 'green', :category => 'furniture', :available => true).first.name
   end
  
   def test_sort_items_by_price_cheapest_first
@@ -33,11 +33,11 @@ class TestStore < MiniTest::Unit::TestCase
   end
   
   def test_categories_list
-    assert_equal ['Clothing', 'Furniture', 'Tools'], @store.categories #same as above comment
+    assert_equal ['Clothing', 'Furniture', 'Tools'], @store.categories
   end
   
   def test_unique_items_in_category
-    assert_equal ['Jeans', 'T-shirt'].sort, @store.unique_articles_in_category('Clothing').sort #yup, still same
+    assert_equal ['Jeans', 'T-shirt'].sort, @store.unique_articles_in_category('Clothing').sort
   end
   
   def test_cart_initialization
