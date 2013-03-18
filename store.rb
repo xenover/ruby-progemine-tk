@@ -47,12 +47,11 @@ class Store
   end
 
   class Cart
-    attr_accessor :store, :items, :total_sale
+    attr_accessor :store, :items
 
     def initialize(store)
       @store = store
       @items = []
-      @total_sale = 0.0
     end
 
     def total_items
