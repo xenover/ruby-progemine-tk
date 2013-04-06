@@ -1,4 +1,4 @@
-<div class="main">
+<div>
   <p id="notice"><%= notice %></p>
    
   <p>
@@ -20,12 +20,19 @@
     <b>Tags:</b>
     <%= join_tags(@post) %>
   </p>
+  
+  <%= form_tag delete_multiple_comments_post_path do %>
+    <h2>Comments</h2>
+    <%= render @post.comments %>
+    <%= submit_tag "Delete selected comments", {:confirm => 'Delete all the selected comments?'} %>
+  <% end %>
    
-  <h2>Comments</h2>
-  <%= render @post.comments %>
-   
-  <h2>Add a comment:</h2>
-  <%= render "comments/form" %>
+  <%- unless @post.closed %>
+    <h2>Add a comment:</h2>
+    <%= render "comments/form" %>
+  <%- else %>
+    <p style="color:red">Post closed, cannot add more comments </p>
+  <%- end %>
    
   <%= link_to 'Edit Post', edit_post_path(@post) %> |
   <%= link_to 'Back to Posts', posts_path %> |

@@ -1,8 +1,10 @@
 TkBlog::Application.routes.draw do
   resources :posts do
+    member do 
+      post 'delete_multiple_comments'
+    end
     resources :comments
   end
-
 
   get "home/index"
 
@@ -62,4 +64,5 @@ TkBlog::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+  match "/posts/:id/close_post", :controller => 'posts', :action => 'close_post'
 end

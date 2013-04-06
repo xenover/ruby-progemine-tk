@@ -1,0 +1,64 @@
+Script started on Sat 06 Apr 2013 05:41:50 PM EEST
+]0;taavi@taavi-virtual-machine: ~/ruby-kursus/repo/tk-blogtaavi@taavi-virtual-machine:~/ruby-kursus/repo/tk-blog$ ls
+[0m[01;34mapp[0m        [01;34mdb[0m       Gemfile~      [01;34mlog[0m       README.rdoc  [01;34mtest[0m        [01;34mvendor[0m
+[01;34mconfig[0m     [01;34mdoc[0m      Gemfile.lock  [01;34mpublic[0m    [01;34ms[0m            [01;34mtmp[0m
+config.ru  Gemfile  [01;34mlib[0m           Rakefile  [01;34mscript[0m       typescript
+]0;taavi@taavi-virtual-machine: ~/ruby-kursus/repo/tk-blogtaavi@taavi-virtual-machine:~/ruby-kursus/repo/tk-blog$ git add .
+]0;taavi@taavi-virtual-machine: ~/ruby-kursus/repo/tk-blogtaavi@taavi-virtual-machine:~/ruby-kursus/repo/tk-blog$ git diff
+[?1h=[K[?1l>]0;taavi@taavi-virtual-machine: ~/ruby-kursus/repo/tk-blogtaavi@taavi-virtual-machine:~/ruby-kursus/repo/tk-blog$ git pull
+Already up-to-date.
+]0;taavi@taavi-virtual-machine: ~/ruby-kursus/repo/tk-blogtaavi@taavi-virtual-machine:~/ruby-kursus/repo/tk-blog$ git commit -m "Close ps[Kos t works, mass delete works"
+[master 4e82d5e] Close post works, mass delete works
+ 55 files changed, 10305 insertions(+), 21 deletions(-)
+ create mode 100644 tk-blog/app/mailers/user_mailer.rb
+ create mode 100644 tk-blog/app/views/user_mailer/new_comment_email.html.erb
+ create mode 100644 tk-blog/s/README
+ create mode 100644 tk-blog/s/Rakefile
+ create mode 100644 tk-blog/s/app/controllers/application_controller.rb
+ create mode 100644 tk-blog/s/app/helpers/application_helper.rb
+ create mode 100644 tk-blog/s/config/boot.rb
+ create mode 100644 tk-blog/s/config/database.yml
+ create mode 100644 tk-blog/s/config/environment.rb
+ create mode 100644 tk-blog/s/config/environments/development.rb
+ create mode 100644 tk-blog/s/config/environments/production.rb
+ create mode 100644 tk-blog/s/config/environments/test.rb
+ create mode 100644 tk-blog/s/config/initializers/backtrace_silencers.rb
+ create mode 100644 tk-blog/s/config/initializers/cookie_verification_secret.rb
+ create mode 100644 tk-blog/s/config/initializers/inflections.rb
+ create mode 100644 tk-blog/s/config/initializers/mime_types.rb
+ create mode 100644 tk-blog/s/config/initializers/new_rails_defaults.rb
+ create mode 100644 tk-blog/s/config/initializers/session_store.rb
+ create mode 100644 tk-blog/s/config/locales/en.yml
+ create mode 100644 tk-blog/s/config/routes.rb
+ create mode 100644 tk-blog/s/db/seeds.rb
+ create mode 100644 tk-blog/s/doc/README_FOR_APP
+ create mode 100644 tk-blog/s/log/development.log
+ create mode 100644 tk-blog/s/log/production.log
+ create mode 100644 tk-blog/s/log/server.log
+ create mode 100644 tk-blog/s/log/test.log
+ create mode 100644 tk-blog/s/public/404.html
+ create mode 100644 tk-blog/s/public/422.html
+ create mode 100644 tk-blog/s/public/500.html
+ create mode 100644 tk-blog/s/public/favicon.ico
+ create mode 100644 tk-blog/s/public/images/rails.png
+ create mode 100644 tk-blog/s/public/index.html
+ create mode 100644 tk-blog/s/public/javascripts/application.js
+ create mode 100644 tk-blog/s/public/javascripts/controls.js
+ create mode 100644 tk-blog/s/public/javascripts/dragdrop.js
+ create mode 100644 tk-blog/s/public/javascripts/effects.js
+ create mode 100644 tk-blog/s/public/javascripts/prototype.js
+ create mode 100644 tk-blog/s/public/robots.txt
+ create mode 100755 tk-blog/s/script/about
+ create mode 100755 tk-blog/s/script/console
+ create mode 100755 tk-blog/s/script/dbconsole
+ create mode 100755 tk-blog/s/script/destroy
+ create mode 100755 tk-blog/s/script/generate
+ create mode 100755 tk-blog/s/script/performance/benchmarker
+ create mode 100755 tk-blog/s/script/performance/profiler
+ create mode 100755 tk-blog/s/script/plugin
+ create mode 100755 tk-blog/s/script/runner
+ create mode 100755 tk-blog/s/script/server
+ create mode 100644 tk-blog/s/test/performance/browsing_test.rb
+ create mode 100644 tk-blog/s/test/test_helper.rb
+ create mode 120000 tk-blog/s/vendor/rails
+ create mode 100644 tk-blog/test/functional/user_mailer_t

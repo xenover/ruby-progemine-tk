@@ -60,9 +60,11 @@ class PostsController < ApplicationController
   # PUT /posts/1.json
   def update
     @post = Post.find(params[:id])
+    @post.update_attributes(params[:post])
+    @post.closed = false
 
     respond_to do |format|
-      if @post.update_attributes(params[:post])
+      if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
       else
@@ -82,5 +84,23 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url }
       format.json { head :no_content }
     end
+  end
+  
+  def close_post
+    @post = Post.find(params[:id])
+    @post.closed = true
+    @post.save!
+    
+    respond_to do |format|
+      format.html {redirect_to @post, notice: 'Post closed.'}
+      format.json {head :no_content}
+    end
+  end
+  
+  def delete_multiple_comments
+    @post = Post.find(params[:id])
+    Comment.delete_all(:id => params[:comment_ids])
+    flash[:notice] = "Comments deleted"
+    redirect_to post_path(@post)
   end
 end

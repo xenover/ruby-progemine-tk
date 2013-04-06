@@ -1,4 +1,4 @@
-<div class="main">
+<div>
   <% @post.tags.build %>
   <%= form_for(@post) do |post_form| %>
     <% if @post.errors.any? %>
@@ -28,7 +28,8 @@
     <h2>Tags</h2>
     <%= render :partial => 'tags/form', :locals => {:form => post_form} %>
     <div class="actions">
-      <%= post_form.submit %>
+      <%= post_form.submit "Add new Post", :class => "buttons" %>
+      <%= button_to 'Close Post', {:action => "close_post"}, {:confirm => "Sure you want to close this post?", :class => "buttons"} %>
     </div>
   <% end %>
 </div>
