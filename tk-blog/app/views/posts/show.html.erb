@@ -20,11 +20,12 @@
     <b>Tags:</b>
     <%= join_tags(@post) %>
   </p>
+  <%= button_to 'Close Post', close_post_path, {:confirm => "Sure you want to close this post?"} unless @post.closed%>
   
   <%= form_tag delete_multiple_comments_post_path do %>
     <h2>Comments</h2>
     <%= render @post.comments %>
-    <%= submit_tag "Delete selected comments", {:confirm => 'Delete all the selected comments?'} %>
+    <%= submit_tag "Delete selected comments", {:confirm => 'Delete all the selected comments?'} if @post.comments.any?%>
   <% end %>
    
   <%- unless @post.closed %>

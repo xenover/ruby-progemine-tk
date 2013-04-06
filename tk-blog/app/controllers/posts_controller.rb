@@ -86,7 +86,7 @@ class PostsController < ApplicationController
     end
   end
   
-  def close_post
+  def close
     @post = Post.find(params[:id])
     @post.closed = true
     @post.save!

@@ -2,6 +2,7 @@ TkBlog::Application.routes.draw do
   resources :posts do
     member do 
       post 'delete_multiple_comments'
+      post 'close'
     end
     resources :comments
   end
