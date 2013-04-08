@@ -1,8 +1,9 @@
 class UserMailer < ActionMailer::Base
-  default from: "noreply@tk-blog.com"
+  default from: "tkblog404@gmail.com"
   
-  def new_comment_email(comment)
+  def email_author_new_comment(comment)
     @comment = comment
-    #mail(
+    @post = comment.post
+    mail(:to => @post.author_email, :subject => "You have a new comment on your blog post!")
   end
 end
