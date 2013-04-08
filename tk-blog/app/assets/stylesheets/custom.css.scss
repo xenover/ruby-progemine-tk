@@ -9,14 +9,45 @@ html {
 body {
   padding-top: 60px;
   margin: 0px auto;
-  width: 1280px;
+  width: 75%;
 }
 
 .main {
-  background-color: white;
+  background-color: #FFD073;
   border-radius: 25px;
   padding: 10px;
   margin-bottom: 20px;
+}
+
+.inner {
+  background-color: #F3FD72;
+  border-radius: 15px;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+.content {
+  background-color: white;
+  border-radius: 5px;
+  padding: 2px;
+  margin-bottom: 5px;
+  height: 100px;
+}
+
+.comment {
+  background-color: #F3FD72;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.comment-content {
+  background-color: #CBF76F;
+  border-radius: 5px;
+  padding: 2px;
+  margin-bottom: 5px;
+  display:inline-block;
+  font-size: 150%;
 }
 
 section {
@@ -29,6 +60,7 @@ textarea {
 	box-sizing: border-box;
 
 	width: 100%;
+	height: 200px;
 }
 
 .center {
@@ -37,6 +69,22 @@ textarea {
 
 .center h1 {
   margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+a {
+  font-size: 125%;
+  margin-right: 10px;
+}
+
+a:hover {
+  /*text-decoration: underline;*/
+  text-color: blue;
+  background-color: white;
 }
 
 /* typography */
@@ -60,16 +108,9 @@ h2 {
   color: #999;
 }
 
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
+h3  {
+  text-align: center;
 }
 
-a {
-  font-size: 150%;
-  margin-right: 10px;
-}
+/* custom */
 
-a:hover {
-  text-decoration: underline;
-}

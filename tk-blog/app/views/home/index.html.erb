@@ -1,4 +1,6 @@
-<div>  
-  <h1> Hello, Ruby Kursus! </h1>
-  <%= link_to "See blog", posts_path %>
+<div class="main">  
+  <h1> Terekest, Ruby Kursus! </h1>
+  <h2> See blogi on loodud Tartu Ülikooli "Programmeerimine Ruby on Rails raamistikus" kursuse vahetööna </h2>
+  <p> Ärge seda lehekülge liiga tõsisena võtke </p>
+  <%= button_to "Vaata blogi postitusi", posts_path, {:method => :get} %>
 </div>

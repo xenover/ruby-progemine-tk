@@ -1,16 +1,16 @@
-<p>
-  <b>Commenter:</b>
-  <%= comment.commenter %>
-</p>
+<div class="comment">
+  <p>
+    <b><%= comment.commenter %></b>
+  </p>
 
-<p>
-  <b>Comment:</b>
-  <%= comment.body %>
-</p>
+  <div class="comment-content">
+    <%= comment.body %>
+  </div>
 
-<p>
-  <%= link_to 'Delete', [comment.post, comment],
-               :confirm => 'Are you sure?',
-               :method => :delete %>
-  <%= check_box_tag "comment_ids[]", comment.id %>
-</p>
+  <p>
+    <%= link_to 'Kustuta', [comment.post, comment],
+                 :confirm => 'Are you sure?',
+                 :method => :delete %>
+    <%= check_box_tag "comment_ids[]", comment.id %>
+  </p>
+</div>

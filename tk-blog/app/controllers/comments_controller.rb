@@ -4,7 +4,9 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(params[:comment])
-    UserMailer.email_author_new_comment(@comment).deliver
+    unless @post.author_email.nil? || @post.author_email.strip.blank?
+      UserMailer.email_author_new_comment(@comment).deliver
+    end
     redirect_to post_path(@post)
   end
   
