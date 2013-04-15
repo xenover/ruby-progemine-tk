@@ -1,4 +1,4 @@
-class Addclosedtoposts < ActiveRecord::Migration
+class AddClosedToPosts < ActiveRecord::Migration
   def up
     add_column :posts, :closed, :boolean, {:default => false}
   end
