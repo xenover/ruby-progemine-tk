@@ -9,7 +9,7 @@
       <%= @comment.commenter %> just added a new comment on your blog post <%= @post.title %><br/>
     </p>
     <p>
-      You can check it out on the website!
+      You can check it out <%= link_to "here", post_url(@post) %>
     </p>
     <p>Have an awesome day!</p>
     <p>TK-blog team</p>
