@@ -1,15 +1,15 @@
 <div class="main">
-  <h1>Kõik postitused</h1>
+  <h1>All posts</h1>
   
-  <%= button_to 'Uus postitus', new_post_path, {:method => :get} %>
+  <%= button_to 'New post', new_post_path, {:method => :get} %>
 
   <% @posts.each do |post| %>
     <div class="inner">
       <p>Autor: <%= post.name %></p>
       <h3><%= link_to post.title, post %></h3>
       <div class="content"><%= post.content %></div>
-      <span><%= link_to 'Muuda', edit_post_path(post) %></span>
-      <span><%= link_to 'Kustuta', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+      <span><%= link_to 'Modify', edit_post_path(post) %></span>
+      <span><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></span>
     </div>
   <% end %>
 </div>
