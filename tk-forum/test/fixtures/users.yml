@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  first_name: 
+  last_name: 
+  email: 
+  birthday: 2013-05-06
+  about: 
+
+two:
+  first_name: 
+  last_name: 
+  email: 
+  birthday: 2013-05-06
+  about: 

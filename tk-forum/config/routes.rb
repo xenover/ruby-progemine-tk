@@ -1,4 +1,14 @@
 TkForum::Application.routes.draw do
+  get "sign_up" => "users#new", :as => "sign_up"
+  get "log_in" => "sessions#new", :as => "log_in"
+  get "log_out" => "sessions#destroy", :as => "log_out"
+
+  resources :users
+  resources :sessions
+
+  get "home/index"
+  get "sessions/new"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +58,7 @@ TkForum::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+   root :to => "users#new"
 
   # See how all your routes lay out with "rake routes"
 
