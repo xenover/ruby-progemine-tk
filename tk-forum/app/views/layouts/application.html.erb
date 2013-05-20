@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TkForum</title>
+  <title><%= yield(:title) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -10,37 +10,14 @@
     <![endif]-->
 </head>
 <body>
-  <header class="navbar navbar-fixed-top navbar-inverse">
-    <div class="navbar-inner">
-      <div class="container">
-      <h1><%= link_to "TK-Forum", "#" %></h1>
-        <nav>
-          <ul class="nav pull-right">
-            <li><%= link_to "Home", "#" %></li>
-            <li><%= link_to "About", "#" %></li>
-            <li>
-              <% if current_user %>
-                <%= link_to "Sign out", log_out_path %>
-              <% else %>
-                <%= link_to "Sign in", log_in_path %>
-              <% end %>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
-  <div class="container">
-    <div class="current-user">
-      <% if current_user %>
-        <p>Logged in as <%= current_user.username %></p>
-      <% end %>
-    </div>
+  <%= render 'layouts/header' %>
+  <div class="container fill">
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
     <% end %>
 
     <%= yield %>
+    <%= render 'layouts/footer' %>
   </div>
 </body>
 </html>

@@ -1,3 +1,4 @@
+<% provide(:title, 'Log in') %>
 <h1>Log in</h1>
 
 <%= form_tag sessions_path do %>
@@ -11,3 +12,7 @@
   </p>
   <p class="button"><%= submit_tag "Log in" %></p>
 <% end %>
+<p>or</p>
+<h1>Sign up</h1>
+
+<p><%= link_to "Sign up!", sign_up_path, :class => "btn btn-large btn-primary" %></p>
