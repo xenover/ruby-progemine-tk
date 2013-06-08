@@ -5,7 +5,7 @@
 	<tr class="info">
   	<td><%= link_to cat.name, cat %></td>
   </tr>
-  <% cat.topics.each do |tc| %>
+  <% cat.topics.first(5).each do |tc| %>
     <tr>
   		<td><%= link_to tc.name, [cat, tc] %></td>
   	</tr>

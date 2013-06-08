@@ -18,11 +18,13 @@ class CategoriesController < ApplicationController
     @ctg = Category.find(params[:id])
   end
 
-  # def edit
-  #   @ctg = Category.find(params[:id])
-  # end
+  def edit
+    @ctg = Category.find(params[:id])
+  end
 
-  # def update
-  #   Category.find(params[:id]).update_attributes(params)
-  # end
+  def update
+    @ctg = Category.find(params[:id])
+    @ctg.update_attributes!(params[:category])
+    redirect_to @ctg
+  end
 end
