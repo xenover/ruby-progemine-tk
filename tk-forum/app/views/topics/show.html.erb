@@ -1,0 +1,2 @@
+<% provide(:title, @topic.name) %>
+<%= button_to "Edit topic", edit_category_topic_path(@topic), :method => :get, :class => 'btn' if current_user && current_user.admin? %>

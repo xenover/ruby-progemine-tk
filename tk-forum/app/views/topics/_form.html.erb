@@ -1,0 +1,17 @@
+<%= form_for ([@cat, @topic]) do |tc| %>
+  <% if @topic.errors.any? %>
+    <div class="alert alert-error">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @topic.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+  	<%= tc.label :name %><br />
+  	<%= tc.text_field :name %><br />
+  </p>
+  <p class="button"><%= tc.submit %></p>
+<% end %>

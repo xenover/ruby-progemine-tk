@@ -11,7 +11,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130506134057) do
+ActiveRecord::Schema.define(:version => 20130608200839) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+  end
+
+  add_index "categories", ["user_id"], :name => "index_categories_on_user_id"
+
+  create_table "topics", :force => true do |t|
+    t.integer  "category_id"
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "topics", ["category_id"], :name => "index_topics_on_category_id"
+  add_index "topics", ["user_id"], :name => "index_topics_on_user_id"
+
+  create_table "user_settings", :force => true do |t|
+    t.boolean  "is_moderator"
+    t.boolean  "is_admin"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "user_id"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "first_name"
@@ -19,11 +47,12 @@ ActiveRecord::Schema.define(:version => 20130506134057) do
     t.string   "username"
     t.string   "email"
     t.date     "birthday"
-    t.string   "about"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.string   "about"
+    t.integer  "authority_level", :default => 0
   end
 
 end

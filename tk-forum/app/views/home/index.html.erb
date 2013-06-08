@@ -1,2 +1,14 @@
-<!-- render categories here -->
 <% provide(:title, 'TK-forum') %>
+<%= button_to "Add new category", new_category_path, :method => :get, :class => 'btn' if current_user && current_user.admin? %>
+<table class="table">
+<% @categories.each do |cat| %>
+	<tr class="info">
+  	<td><%= link_to cat.name, cat %></td>
+  </tr>
+  <% cat.topics.each do |tc| %>
+    <tr>
+  		<td><%= link_to tc.name, [cat, tc] %></td>
+  	</tr>
+  <% end %>
+<% end %>
+</table>

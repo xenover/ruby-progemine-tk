@@ -16,13 +16,28 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password
 
+  has_many :categories
+  #has_one :user_settings
+
+  # authority levels
+  ADMIN_LEVEL = 2
+  MOD_LEVEL = 1
+
   def self.authenticate(username, password)
   	user = find_by_username(username)
-  	if User.valid_password(password, user)
+  	if User.valid_password?(password, user)
   		user
   	else
   		nil
   	end
+  end
+  
+  def moderator?
+    authority_level == MOD_LEVEL
+  end
+
+  def admin?
+    authority_level == ADMIN_LEVEL
   end
   
   private
@@ -34,7 +49,7 @@ class User < ActiveRecord::Base
   	end
   end
 
-  def self.valid_password(pswd, u)
+  def self.valid_password?(pswd, u)
   	u && u.password_hash == BCrypt::Engine.hash_secret(pswd, u.password_salt)
   end
 end

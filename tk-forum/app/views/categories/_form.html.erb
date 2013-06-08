@@ -1,0 +1,17 @@
+<%= form_for @ctg do |cat| %>
+  <% if @ctg.errors.any? %>
+    <div class="alert alert-error">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @ctg.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+  	<%= cat.label :name %><br />
+  	<%= cat.text_field :name %><br />
+  </p>
+  <p class="button"><%= cat.submit %></p>
+<% end %>
