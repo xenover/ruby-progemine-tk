@@ -1,11 +1,6 @@
 <% provide(:title, @ctg.name) %>
-<% if current_user && current_user.admin? %>
-	<%= button_to "Edit category", edit_category_path(@ctg), :method => :get, :class => 'btn'%>
-	<%= button_to "Add new topic", new_category_topic_path(@ctg), :method => :get, :class => 'btn'%>
-<% end %>
-<table class="table">
+<table class="table table-bordered">
 	<tr class="info">
-  	<td><%= @ctg.name %></td>
   	<% @ctg.topics.each do |tc| %>
     <tr>
   		<td><%= link_to tc.name, [@ctg, tc] %></td>
@@ -13,3 +8,7 @@
   <% end %>
   </tr>
 </table>
+<% if current_user && current_user.admin? %>
+  <%= button_to "Edit category", edit_category_path(@ctg), :method => :get, :class => 'btn'%>
+  <%= button_to "Add new topic", new_category_topic_path(@ctg), :method => :get, :class => 'btn'%>
+<% end %>

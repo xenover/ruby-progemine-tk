@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-  	@categories = Category.all
+  	@categories = Category.sort_alpha
   end
 end

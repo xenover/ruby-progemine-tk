@@ -5,4 +5,6 @@ class Category < ActiveRecord::Base
   has_many :topics
 
   validates_presence_of :name
+
+  scope :sort_alpha, :order => :name
 end
