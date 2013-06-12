@@ -10,6 +10,10 @@ TkForum::Application.routes.draw do
     resources :topics
   end
 
+  resources :topics do
+    resources :posts
+  end
+
   get "home/index"
   get "sessions/new"
 

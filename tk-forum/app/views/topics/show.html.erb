@@ -1,4 +1,20 @@
 <% provide(:title, @topic.name) %>
+<%= button_to "New post", new_topic_post_path(@topic, @post), :method => :get, :class => 'btn' %>
+<table class="table table-bordered table-striped">
+	<tr class="info">
+  	<td><strong><%= @topic.name %></strong></td>
+  </tr>
+  <% if @topic.posts.empty? %>
+  	<tr>
+  		<td>No posts yet!</td>
+  	</tr>
+  <% end %>
+  <% @topic.posts.each do |post| %>
+    <tr>
+  		<td><%= link_to post.title, [@topic, post] %></td>
+  	</tr>
+  <% end %>
+</table>
 <% if current_user && current_user.admin? %>
 	<%= button_to "Edit topic", edit_category_topic_path(@topic.category, @topic), :method => :get, :class => 'btn' %>
 <% end %>

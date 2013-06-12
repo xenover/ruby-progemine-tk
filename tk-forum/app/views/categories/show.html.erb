@@ -1,7 +1,14 @@
 <% provide(:title, @ctg.name) %>
 <table class="table table-bordered table-striped">
 	<tr class="info">
-  	<% @ctg.topics.each do |tc| %>
+  	<td><strong><%= @ctg.name %></strong></td>
+  </tr>
+  <% if @ctg.topics.empty? %>
+  	<tr>
+  		<td>No topics yet!</td>
+  	</tr>
+  <% end %>
+  <% @ctg.topics.each do |tc| %>
     <tr>
   		<td><%= link_to tc.name, [@ctg, tc] %></td>
   	</tr>

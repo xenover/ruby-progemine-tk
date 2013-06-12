@@ -2,6 +2,7 @@ class TopicsController < ApplicationController
 	def new
 		add_category_breadcrumbs
 		add_breadcrumb "New topic"
+
 		redirect_to root_url unless current_user && current_user.admin?
 		@topic = Topic.new()
 		@cat = Category.find(params[:category_id])
@@ -21,6 +22,7 @@ class TopicsController < ApplicationController
 
 	def show
 		@topic = Topic.find(params[:id])
+
 		add_category_breadcrumbs
 		add_breadcrumb @topic.name
 	end
@@ -28,6 +30,7 @@ class TopicsController < ApplicationController
 	def edit
 		@topic = Topic.find(params[:id])
 		@cat = @topic.category
+
 		add_category_breadcrumbs
 		add_breadcrumb "Edit #{@topic.name}"
 	end
@@ -35,7 +38,7 @@ class TopicsController < ApplicationController
 	def update
 		@topic = Topic.find(params[:id])
 		@topic.update_attributes(params[:topic])
-		redirect_to [@topic.category, @topic]
+		redirect_to @topic.category
 	end
 
 	def add_category_breadcrumbs

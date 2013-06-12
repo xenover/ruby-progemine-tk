@@ -11,16 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130608200839) do
+ActiveRecord::Schema.define(:version => 20130612200238) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.integer  "user_id"
+    t.integer  "priority",   :default => 0
   end
 
   add_index "categories", ["user_id"], :name => "index_categories_on_user_id"
+
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.integer  "topic_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "content"
+  end
+
+  add_index "posts", ["topic_id"], :name => "index_posts_on_topic_id"
+  add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
   create_table "topics", :force => true do |t|
     t.integer  "category_id"

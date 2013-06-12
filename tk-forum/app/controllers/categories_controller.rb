@@ -2,11 +2,13 @@ class CategoriesController < ApplicationController
 
   def index
     add_breadcrumb 'Categories'
-    @all = Category.sort_alpha
+
+    @all = Category.sort_prt
   end
 
   def new
     add_breadcrumb 'New category'
+
   	redirect_to root_url unless current_user && current_user.admin?
   	@ctg = Category.new()
   end
@@ -14,6 +16,7 @@ class CategoriesController < ApplicationController
   def create
   	@ctg = Category.new(params[:category])
     @ctg.user = current_user
+    @ctg.priority = Category.last.priority + 1
   	if @ctg.save
   		redirect_to root_url, :notice => "Added new category #{@ctg.name}"
   	else
@@ -23,11 +26,13 @@ class CategoriesController < ApplicationController
 
   def show
     @ctg = Category.find(params[:id])
+
     add_breadcrumb @ctg.name
   end
 
   def edit
     @ctg = Category.find(params[:id])
+
     add_breadcrumb "Edit #{@ctg.name}"
   end
 

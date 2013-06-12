@@ -4,7 +4,7 @@
 	<tr class="info">
   	<td><strong><%= link_to cat.name, cat%></strong></td>
   </tr>
-  <% cat.topics.first(5).each do |tc| %>
+  <% cat.topics.sort_alpha.first(5).each do |tc| %>
     <tr>
   		<td><%= link_to tc.name, [cat, tc] %></td>
   	</tr>
