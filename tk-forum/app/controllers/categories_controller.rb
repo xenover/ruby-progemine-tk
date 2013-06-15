@@ -16,7 +16,8 @@ class CategoriesController < ApplicationController
   def create
   	@ctg = Category.new(params[:category])
     @ctg.user = current_user
-    @ctg.priority = Category.last.priority + 1
+    last_cat = Category.last
+    @ctg.priority = last_cat.nil? ? 0 : last_cat.priority + 1
   	if @ctg.save
   		redirect_to root_url, :notice => "Added new category #{@ctg.name}"
   	else
