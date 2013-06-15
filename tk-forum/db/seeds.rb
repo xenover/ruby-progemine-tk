@@ -8,7 +8,7 @@ Category.create([
   { :id => 4, :name => "Electronics", :user_id => 1, :priority => 4 },
   { :id => 5, :name => "School", :user_id => 1, :priority => 2 },
   { :id => 7, :name => "Work", :user_id => 1, :priority => 5 }
-])
+], :without_protection => true )
 
 
 
@@ -18,7 +18,7 @@ Comment.create([
   { :id => 5, :user_id => 5, :post_id => 5, :content => "Testing redirect" },
   { :id => 6, :user_id => 1, :post_id => 5, :content => "Mine is an ASUS N56VZ as well. Bro fist!" },
   { :id => 7, :user_id => 1, :post_id => 6, :content => "Just kidding, I deeply dislike his music." }
-])
+], :without_protection => true )
 
 
 
@@ -29,7 +29,7 @@ Post.create([
   { :id => 4, :title => "Carrier Relations Manager at Fortumo", :user_id => 1, :topic_id => 26, :content => nil },
   { :id => 5, :title => "Post your rig!", :user_id => 5, :topic_id => 12, :content => "Mine is an ASUS N56VZ" },
   { :id => 6, :title => "Favourite singer", :user_id => 1, :topic_id => 2, :content => "Who is your favourite singer? Mine is Justin Bieber." }
-])
+], :without_protection => true )
 
 
 
@@ -57,7 +57,7 @@ Topic.create([
   { :id => 24, :category_id => 7, :user_id => 1, :name => "General" },
   { :id => 25, :category_id => 7, :user_id => 1, :name => "Corporations" },
   { :id => 26, :category_id => 7, :user_id => 1, :name => "Job offers" }
-])
+], :without_protection => true )
 
 
 
@@ -65,6 +65,6 @@ User.create([
   { :id => 1, :first_name => "Taavi", :last_name => "Kala", :username => "xenover", :email => "xenover@gmail.com", :birthday => "1991-10-28", :password_hash => "$2a$10$76H.gcJcd5GkzILZh4TktevpU3orZ9n6YKBhxRIgV2xrpqkWIdnIu", :password_salt => "$2a$10$76H.gcJcd5GkzILZh4Tkte", :about => nil, :authority_level => 2 },
   { :id => 4, :first_name => "Agnes", :last_name => "Rikk", :username => "agnesaksy", :email => "agnesasky@gmail.com", :birthday => "1992-05-24", :password_hash => "$2a$10$2oQtAjV7dN8bTIuXOuCiS.fDu4xL8.krFe0VZ0Dgp0khbt77gX/3y", :password_salt => "$2a$10$2oQtAjV7dN8bTIuXOuCiS.", :about => "Pretty schmexy gurl", :authority_level => 0 },
   { :id => 5, :first_name => "Taavi", :last_name => "Kala", :username => "taavik", :email => "kilu12@hot.ee", :birthday => "1991-10-28", :password_hash => "$2a$10$vB8sCc2VBn306A8AfkAjq.Fa3LeCzo0Qn6xmJ82PDtIFkzoV5Suqm", :password_salt => "$2a$10$vB8sCc2VBn306A8AfkAjq.", :about => "Nuthin' much", :authority_level => 0 }
-])
+], :without_protection => true )
 
 
