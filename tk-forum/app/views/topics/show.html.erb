@@ -1,5 +1,5 @@
 <% provide(:title, @topic.name) %>
-<%= button_to "New post", new_topic_post_path(@topic, @post), :method => :get, :class => 'btn' %>
+<%= button_to "New post", new_topic_post_path(@topic, @post), :method => :get, :class => 'btn' if current_user%>
 <table class="table table-bordered table-striped">
 	<tr class="info">
   	<td><strong><%= @topic.name %></strong></td>

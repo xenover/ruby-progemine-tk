@@ -11,11 +11,11 @@
   <% end %>
   <p>
   	<%= post.label :title %><br />
-  	<%= post.text_field :title %><br />
+  	<%= post.text_field :title, :class => "width500"%><br />
   </p>
   <p>
     <%= post.label :content %><br />
-    <%= post.text_area :content %><br />
+    <%= post.text_area :content, :rows => 3, :class => "width500"%><br />
   </p>
   <p class="button"><%= post.submit %></p>
 <% end %>

@@ -5,6 +5,7 @@ class Category < ActiveRecord::Base
   has_many :topics, :dependent => :delete_all
 
   validates_presence_of :name
+  validates_presence_of :user
 
   scope :sort_alpha, :order => :name
   scope :sort_prt, order("categories.priority DESC")

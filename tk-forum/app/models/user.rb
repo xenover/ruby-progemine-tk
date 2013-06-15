@@ -17,6 +17,9 @@ class User < ActiveRecord::Base
   before_save :encrypt_password
 
   has_many :categories
+  has_many :topics
+  has_many :posts
+  has_many :comments
   #has_one :user_settings
 
   # authority levels

@@ -1,0 +1,17 @@
+<%= form_for [@post, @comment] do |cmnt| %>
+  <% if @comment.errors.any? %>
+    <div class="alert alert-error">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @comment.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+  	<%= cmnt.label :content %><br />
+    <%= cmnt.text_area :content, :rows => 3, :class => "width500"%><br />
+  </p>
+  <p class="button"><%= cmnt.submit %></p>
+<% end %>

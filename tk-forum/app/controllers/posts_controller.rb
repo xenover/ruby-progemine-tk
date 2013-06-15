@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     @post.user = current_user
     @post.topic = @topic
   	if @post.save
-  		redirect_to [@topic.category, @topic], :notice => "Added new post #{@post.title}"
+  		redirect_to [@topic, @post], :notice => "Added new post #{@post.title}"
   	else
   		render "new"
   	end
@@ -22,6 +22,7 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
+		@comment = Comment.new()
 
 		add_parent_breadcrumbs
 		add_breadcrumb @post.title
@@ -38,7 +39,7 @@ class PostsController < ApplicationController
 	def update
 		@post = Post.find(params[:id])
 		@post.update_attributes(params[:post])
-		redirect_to [@post.topic.category, @post.topic]
+		redirect_to [@post.topic, @post], :notice => "Updated post #{@post.title}"
 	end
 
 	def add_parent_breadcrumbs

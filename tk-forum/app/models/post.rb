@@ -1,5 +1,8 @@
 class Post < ActiveRecord::Base
+	attr_accessible :content, :title
+
   belongs_to :user
   belongs_to :topic
-  attr_accessible :content, :title
+
+  has_many :comments, :dependent => :delete_all
 end
