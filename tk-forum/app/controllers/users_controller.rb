@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def new
+    add_breadcrumb "Sign up"
     @user = User.new()
   end
 
