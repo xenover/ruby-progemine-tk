@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   end
   
   def moderator?
-    authority_level == MOD_LEVEL
+    authority_level == MOD_LEVEL || admin?
   end
 
   def admin?

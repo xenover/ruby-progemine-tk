@@ -47,4 +47,13 @@ class PostsController < ApplicationController
 		add_breadcrumb @topic.category.name, @topic.category
 		add_breadcrumb @topic.name, [@topic.category, @topic]
 	end
+
+	def destroy
+		post = Post.find(params[:id])
+		title = post.title
+		topic = post.topic
+
+		post.destroy
+		redirect_to [topic.category, topic], :notice => "Deleted post #{title}"
+	end
 end

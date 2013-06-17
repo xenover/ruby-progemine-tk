@@ -45,4 +45,12 @@ class TopicsController < ApplicationController
 		@cat = Category.find(params[:category_id])
 		add_breadcrumb @cat.name, category_path(@cat)
 	end
+
+	def destroy
+		topic = Topic.find(params[:id])
+		ctg = topic.category
+		name = topic.name
+		topic.destroy
+		redirect_to ctg, :notice => "Deleted topic #{name}!"
+	end
 end

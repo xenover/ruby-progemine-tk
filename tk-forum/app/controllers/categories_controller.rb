@@ -42,4 +42,11 @@ class CategoriesController < ApplicationController
     @ctg.update_attributes!(params[:category])
     redirect_to @ctg
   end
+
+  def destroy
+    ctg = Category.find(params[:id])
+    name = ctg.name
+    ctg.destroy
+    redirect_to root_url, :notice => "Category #{name} deleted!"
+  end
 end

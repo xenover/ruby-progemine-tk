@@ -15,7 +15,10 @@
   <% end %>
   </tr>
 </table>
-<% if current_user && current_user.admin? %>
-  <%= button_to "Edit category", edit_category_path(@ctg), :method => :get, :class => 'btn'%>
-  <%= button_to "Add new topic", new_category_topic_path(@ctg), :method => :get, :class => 'btn'%>
+<% if current_user %>
+  <%= button_to "Add new topic", new_category_topic_path(@ctg), :method => :get, :class => 'btn pull-left' if current_user.admin?%>
+  <% if current_user.moderator? %>
+    <%= button_to "Edit category", edit_category_path(@ctg), :method => :get, :class => 'btn pull-left' %>
+    <%= button_to "Delete category", @ctg, :method => :delete, :class => 'btn pull-left', :confirm => 'Are you sure?' %>
+  <% end %>
 <% end %>
