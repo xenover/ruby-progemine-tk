@@ -42,6 +42,17 @@ class User < ActiveRecord::Base
   def admin?
     authority_level == ADMIN_LEVEL
   end
+
+  def status
+    case authority_level
+    when ADMIN_LEVEL
+      "Admin"
+    when MOD_LEVEL
+      "Moderator"
+    else
+      "Forum user"
+    end
+  end
   
   private
   
