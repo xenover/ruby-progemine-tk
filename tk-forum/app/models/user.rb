@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   # authority levels
   ADMIN_LEVEL = 2
   MOD_LEVEL = 1
+  REGULAR_LEVEL = 0
 
   def self.authenticate(username, password)
   	user = find_by_username(username)
@@ -41,6 +42,10 @@ class User < ActiveRecord::Base
 
   def admin?
     authority_level == ADMIN_LEVEL
+  end
+
+  def regular?
+    authority_level == REGULAR_LEVEL
   end
 
   def status

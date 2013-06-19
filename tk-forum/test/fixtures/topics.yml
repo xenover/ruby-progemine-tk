@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  category: 
-  name: MyString
-  user: 
+sports:
+  name: Sports
+  id: 1
+  category_id: 1
 
-two:
-  category: 
-  name: MyString
-  user: 
+estonia:
+  name: Estonia
+  id: 2
+  category_id: 2

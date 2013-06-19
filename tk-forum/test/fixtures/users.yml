@@ -1,15 +1,31 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  first_name: 
-  last_name: 
-  email: 
-  birthday: 2013-05-06
-  about: 
+regular:
+  first_name: Mike
+  last_name: Rafone
+  username: mike_rafone
+  email: microfone@gmail.com
+  birthday: 1991-05-06
+  about: Typical forum user
+  authority_level: 0
+  id: 3
 
-two:
-  first_name: 
-  last_name: 
-  email: 
-  birthday: 2013-05-06
-  about: 
+mod:
+  first_name: Made
+  last_name: Rator
+  username: made_rator
+  email: moderator@gmail.com
+  birthday: 1992-12-01
+  about: A bit more authorized person
+  authority_level: 1
+  id: 2
+
+admin:
+  first_name: Adam
+  last_name: Miniature
+  username: adam_mini
+  email: administrator@gmail.com
+  birthday: 1990-02-28
+  about: Very authorized individual
+  authority_level: 2
+  id: 1

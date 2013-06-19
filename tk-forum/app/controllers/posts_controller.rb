@@ -42,12 +42,6 @@ class PostsController < ApplicationController
 		redirect_to [@post.topic, @post], :notice => "Updated post #{@post.title}"
 	end
 
-	def add_parent_breadcrumbs
-		@topic = Topic.find(params[:topic_id])
-		add_breadcrumb @topic.category.name, @topic.category
-		add_breadcrumb @topic.name, [@topic.category, @topic]
-	end
-
 	def destroy
 		post = Post.find(params[:id])
 		title = post.title
@@ -55,5 +49,11 @@ class PostsController < ApplicationController
 
 		post.destroy
 		redirect_to [topic.category, topic], :notice => "Deleted post #{title}"
+	end
+
+	def add_parent_breadcrumbs
+		@topic = Topic.find(params[:topic_id])
+		add_breadcrumb @topic.category.name, @topic.category
+		add_breadcrumb @topic.name, [@topic.category, @topic]
 	end
 end
