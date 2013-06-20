@@ -1,6 +1,5 @@
 <% provide(:title, @post.title) %>
 <%= button_to "Edit post", edit_topic_post_path(@post.topic, @post), :method => :get, :class => 'btn' if current_user && @post.user == current_user %>
-<%= current_user.try(:username) %>
 <table class="table table-bordered table-striped">
 	<tr class="info">
   	<td colspan="2"><strong><%= @post.title %></strong></td>
