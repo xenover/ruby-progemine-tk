@@ -11,5 +11,7 @@
   <% end %>
 <% end %>
 </table>
-<%= button_to "Add new category", new_category_path, :method => :get, :class => 'btn pull-left margin-right5' if current_user && current_user.admin? %>
-<%= button_to "View users", users_path, :method => :get, :class => 'btn' %>
+<% if current_user && current_user.moderator? %>
+  <%= button_to "Add new category", new_category_path, :method => :get, :class => 'btn pull-left margin-right5' if current_user.admin? %>
+  <%= button_to "View users", users_path, :method => :get, :class => 'btn' %>
+<% end %>
