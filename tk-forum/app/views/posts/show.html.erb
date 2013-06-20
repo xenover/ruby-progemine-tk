@@ -17,7 +17,12 @@
 	  		<div class="center"><%= cmnt.user.nil? ? "User deleted" : cmnt.user.username %></div>
 	  		<div><%= image_tag "/profile.png", :size => "125x125", :class => "img-rounded" %></div>
   		</td>
-  		<td><%= cmnt.content %></td>
+  		<td>
+        <div><%= cmnt.content %></div>
+        <% if current_user && (current_user.moderator? || cmnt.user == current_user) %>
+          <%= link_to "x", [@post, cmnt], :method => :delete, :class => "close pull-right", :confirm => "Are you sure?" %>
+        <% end %>
+      </td>
   	</tr>
   <% end %>
 </table>

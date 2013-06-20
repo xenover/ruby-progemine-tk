@@ -11,4 +11,12 @@ class CommentsController < ApplicationController
   		redirect_to [@topic, @post], :notice => "Could not save new comment. Please try again!"
   	end
 	end
+
+	def destroy
+		comment = Comment.find(params[:id])
+		post = comment.post
+		topic = post.topic
+		comment.destroy
+		redirect_to [topic, post], :notice => "Comment deleted!"
+	end
 end
