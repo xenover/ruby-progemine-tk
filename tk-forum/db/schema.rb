@@ -14,10 +14,10 @@
 ActiveRecord::Schema.define(:version => 20130615193442) do
 
   create_table "categories", :force => true do |t|
+    t.integer  "user_id"
     t.string   "name"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
-    t.integer  "user_id"
     t.integer  "priority",   :default => 0
   end
 
@@ -36,11 +36,11 @@ ActiveRecord::Schema.define(:version => 20130615193442) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
+    t.string   "content"
     t.integer  "user_id"
     t.integer  "topic_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "content"
   end
 
   add_index "posts", ["topic_id"], :name => "index_posts_on_topic_id"
@@ -57,25 +57,17 @@ ActiveRecord::Schema.define(:version => 20130615193442) do
   add_index "topics", ["category_id"], :name => "index_topics_on_category_id"
   add_index "topics", ["user_id"], :name => "index_topics_on_user_id"
 
-  create_table "user_settings", :force => true do |t|
-    t.boolean  "is_moderator"
-    t.boolean  "is_admin"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.integer  "user_id"
-  end
-
   create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "username"
     t.string   "email"
     t.date     "birthday"
+    t.string   "about"
     t.string   "password_hash"
     t.string   "password_salt"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
-    t.string   "about"
     t.integer  "authority_level", :default => 0
   end
 
